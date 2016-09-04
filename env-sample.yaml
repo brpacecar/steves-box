@@ -1,0 +1,7 @@
+hostname: "web1"
+domain: "example.com"
+
+# Digital Ocean API Token
+token: 'Enter Your Token Here'
+
+ssh_key_path: '~/.ssh/id_rsa'
