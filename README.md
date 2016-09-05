@@ -3,6 +3,7 @@
 ## Requirements
 * vagrant - [Vagrant Download Site](https://www.vagrantup.com/downloads.html)
 * virtualbox /w Extension Pack - [VirtualBox Download Site](https://www.virtualbox.org/wiki/Downloads)
+* vagrant digital-ocean plugin - `vagrant plugin install digital-ocean`
 
 ## Setup
 The website content will need to be placed in an app folder which is in the same directory as your Vagrantfile like below.
@@ -25,3 +26,6 @@ Once you have started the vagrant machine the website can be accessed at http://
 * Starting the machine - `vagrant up local`
 * Stop the machine - `vagrant halt local`
 * Destroy the machine - `vagrant destroy local`
+
+## Changing vagrant options
+Several of the standard vagrant machine preferences have been put into variables to make it easy to change. Update the options in the 'Machine Variables' section of the Vagrantfile. You will have to restart a running machine for the changes to take affect.
