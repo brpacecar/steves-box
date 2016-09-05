@@ -15,7 +15,7 @@ debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password password
 debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password_again password ${mysql_root_password}"
 
 # Install dependencies
-apt-get install -y apache2 mysql-server-5.5 php7.0 php7.0-mbstring php7.0-zip git sendmail zip phantomjs ufw fail2ban redis-server
+apt-get install -y apache2 mysql-server-5.5 php7.0 php7.0-mbstring php7.0-zip php-xml git sendmail zip phantomjs ufw fail2ban redis-server
 
 # setup user to own site files
 useradd -d /var/www -s /usr/sbin/nologin webuser

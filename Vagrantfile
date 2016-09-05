@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
     c.vm.hostname = "#{hostname}.local"
     c.vm.provider "virtualbox" do |vb|
       vb.gui = false        # false = start headless
-      vb.memory = "512"    # memory allocated to the vm
+      vb.memory = "768"    # memory allocated to the vm
       vb.name = hostname  # name of the machine in virtualbox
       vb.customize [        # 'vboxmanage modifyvm' options
         "modifyvm", :id,
@@ -33,7 +33,8 @@ Vagrant.configure(2) do |config|
     end
     c.vm.network "private_network", ip: "192.168.56.143" # host only network specific IP
     c.vm.network "forwarded_port", guest: 80, host: 8080 # port forward
-    c.vm.synced_folder "app/", "/var/www/app" # synced folder
+    c.vm.synced_folder "app/", "/var/www/app",
+      owner: "www-data", group: "www-data"# synced folder
     c.vm.provision "shell", path: "bootstrap-local.sh"
   end
 
