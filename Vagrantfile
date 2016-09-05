@@ -1,9 +1,15 @@
-require 'yaml'
-settings     = YAML.load_file 'env.yaml'
-hostname     = settings['hostname']
-domain       = settings['domain']
-token        = settings['token']
-ssh_key_path = settings['ssh_key_path']
+if File.file?('env.yaml')
+  require 'yaml'
+  settings     = YAML.load_file 'env.yaml'
+  hostname     = settings['hostname']
+  domain       = settings['domain']
+  token        = settings['token']
+  ssh_key_path = settings['ssh_key_path']
+end
+
+# Machine Variables
+cpu    = '2'    # number of cpu cores the machine can use
+memory = '768'  # in MB
 
 # Check for required plugins
 required_plugins = ['vagrant-digitalocean']
@@ -24,11 +30,11 @@ Vagrant.configure(2) do |config|
     c.vm.hostname = "#{hostname}.local"
     c.vm.provider "virtualbox" do |vb|
       vb.gui = false        # false = start headless
-      vb.memory = "768"    # memory allocated to the vm
+      vb.memory = memory    # memory allocated to the vm
       vb.name = hostname  # name of the machine in virtualbox
       vb.customize [        # 'vboxmanage modifyvm' options
         "modifyvm", :id,
-        "--cpus", "2"
+        "--cpus", cpu
       ]
     end
     c.vm.network "private_network", ip: "192.168.56.143" # host only network specific IP
