@@ -3,7 +3,7 @@
 ## Requirements
 * vagrant - [Vagrant Download Site](https://www.vagrantup.com/downloads.html)
 * virtualbox /w Extension Pack - [VirtualBox Download Site](https://www.virtualbox.org/wiki/Downloads)
-* vagrant digital-ocean plugin - `vagrant plugin install digital-ocean`
+* vagrant digital-ocean plugin - `vagrant plugin install vagrant-digitalocean`
 
 ## Setup
 The website content will need to be placed in an app folder which is in the same directory as your Vagrantfile like below.
